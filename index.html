@@ -4,34 +4,46 @@
 
 	<title>Leaflet - Map web services example</title>
 
-	<style>
-		/* your css can go here. I suggest a height of 500px */
+	<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
 
+	 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+	<style>
+		#mapid { height: 180px; }
 	</style>
 </head>
 <body>
-	<!-- your mapid div can go here -->
+ 	<div id="mapid">
+	</div>
 
 <script>
-	//your javascript code can go here. (FYI: phnom penh thmey is latitude, longitude: 11.545, 104.8922)
-
-
-/* use this code instead of the tutorial since it has an access token already...
-   just remove the comment tags below so that the code is not commented out ... */
-
-/*
+var mymap = L.map('mapid').setView([11.58, 104.89], 13);
 	L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
 	    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
 	    maxZoom: 18,
 	    id: 'mapbox.streets'
-	}).addTo(mymap);
-*/
+		}).addTo(mymap);
 
-// you could try this latitude/longitude for your marker: 11.58, 104.89
+		var marker = L.marker([11.58, 104.89]).addTo(mymap);
+		var circle = L.circle([11.58, 104.89], {
+			color: 'red',
+			fillColor: '#f03',
+			fillOpacity: 0.5,
+			radius: 500
+	}).addTo(mymap);
+
+	var polygon = L.polygon([
+			[11.58, 104.50],
+			[11.58, 104.19],
+			[11.58, 104.99]
+	]).addTo(mymap);
+
+
+// you could try this latitude/longitude for your marker:
 
 
 
 </script>
+
 
 </body>
 </html>
